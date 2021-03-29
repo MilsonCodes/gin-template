@@ -1,5 +1,5 @@
 # gin-template
-template fo go gin library
+template for go gin library
 
 To begin, clone the repo, then run the commands:
 ```
