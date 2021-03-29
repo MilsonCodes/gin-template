@@ -10,10 +10,11 @@ import (
 type Route struct {
 	Type       string
 	Path       string
-	Controller func(c *gin.Context)
+	Controller gin.HandlerFunc
 }
 
 // Router - function to create the endpoints provided in routes
+// Current implementation only uses a single handler
 func Router(r *gin.Engine, routes []Route) (err error) {
 	for _, route := range routes {
 		switch route.Type {

@@ -18,15 +18,15 @@ var routeSlice = []routes.Route{
 }
 
 func main() {
-	r := gin.Default()
+	r := gin.Default() // Initlialize gin engine
 
-	models.ConnectDataBase()
+	models.ConnectDataBase() // Connect to database
 
-	err := routes.Router(r, routeSlice)
+	err := routes.Router(r, routeSlice) // Initialize routes
 	if err != nil {
 		fmt.Println(err)
 		panic("Error loading router!")
 	}
 
-	r.Run()
+	r.Run() // Launch the server
 }
