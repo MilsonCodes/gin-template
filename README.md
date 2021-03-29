@@ -6,3 +6,5 @@ To begin, clone the repo, then run the commands:
 go download
 go run .
 ```
+
+Define models and controllers in the associated directories, and routes in main.go.
