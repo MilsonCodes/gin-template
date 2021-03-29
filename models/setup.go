@@ -11,7 +11,6 @@ var DB *gorm.DB
 // ConnectDataBase - function to connect to simple sqlite database
 func ConnectDataBase() {
 	database, err := gorm.Open("sqlite3", "database/test.db")
-
 	if err != nil {
 		panic("Failed to connect to database!")
 	}

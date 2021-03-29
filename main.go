@@ -12,6 +12,9 @@ import (
 var routeSlice = []routes.Route{
 	{Type: "GET", Path: "/users", Controller: controllers.FindUsers},
 	{Type: "POST", Path: "/users", Controller: controllers.CreateUser},
+	{Type: "GET", Path: "/users/:id", Controller: controllers.FindUser},
+	{Type: "PATCH", Path: "/users/:id", Controller: controllers.UpdateUser},
+	{Type: "DELETE", Path: "/users/:id", Controller: controllers.DeleteUser},
 }
 
 func main() {
