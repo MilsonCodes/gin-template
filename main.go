@@ -2,20 +2,28 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/MilsonCodes/gin-template/controllers"
+	"github.com/MilsonCodes/gin-template/models"
+	"github.com/MilsonCodes/gin-template/routes"
 	"github.com/gin-gonic/gin"
-	"net/http"
-	"github.com/milsoncodes/gin-template/models"
 )
 
-func main() {
-	fmt.Println("Hello, Gin!")
+var routeSlice = []routes.Route{
+	{Type: "GET", Path: "/users", Controller: controllers.FindUsers},
+	{Type: "POST", Path: "/users", Controller: controllers.CreateUser},
+}
 
+func main() {
 	r := gin.Default()
-	models.ConnectDatabase()
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"data": "Hello, API!",
-		})
-	})
+
+	models.ConnectDataBase()
+
+	err := routes.Router(r, routeSlice)
+	if err != nil {
+		fmt.Println(err)
+		panic("Error loading router!")
+	}
+
 	r.Run()
 }
