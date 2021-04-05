@@ -8,3 +8,4 @@ go run .
 ```
 
 Define models and controllers in the associated directories, and routes in main.go.
+Make sure to edit your go.mod file in order to properly configure your project.
